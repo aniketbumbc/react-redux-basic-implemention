@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { buyCake } from '../Redux';
+import { buyCake, addCake } from '../Redux';
 function CakeContainer(props) {
   return (
     <div>
-      <h1> No of Cakes :- {props.numOfCakes}</h1>
+      <h1>
+        No of Cakes at {props.name} :- {props.numOfCakes}
+      </h1>
       <button onClick={props.buyCake}>Buy Cake</button>
+      <button onClick={props.addCake}>Add Cake</button>
     </div>
   );
 }
@@ -14,13 +17,15 @@ function CakeContainer(props) {
 const mapStateToProps = (state) => {
   return {
     numOfCakes: state.numOfCakes,
+    name: state.shopeName,
   };
 };
 
-// map dispatch actions props to componets
+// map dispatch actions props to componets get methods which pass to props
 const mapDispatchToProps = (dispatch) => {
   return {
     buyCake: () => dispatch(buyCake()),
+    addCake: () => dispatch(addCake()),
   };
 };
 
