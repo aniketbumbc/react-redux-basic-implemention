@@ -16,8 +16,8 @@ function CakeContainer(props) {
 // state from reduc store map to componets props
 const mapStateToProps = (state) => {
   return {
-    numOfCakes: state.numOfCakes,
-    name: state.shopeName,
+    numOfCakes: state.cake.numOfCakes,
+    name: state.cake.shopeName,
   };
 };
 
